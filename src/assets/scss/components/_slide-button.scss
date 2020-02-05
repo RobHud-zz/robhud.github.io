@@ -1,0 +1,96 @@
+.slide-button {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 0 25px 0 30px;
+    position: relative;
+    line-height: 48px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: $font-secondary;
+    color: #472821;
+    border: none;
+    background-color: transparent;
+
+    &__origin, &__copy {
+        pointer-events: none;
+    }
+
+    &__origin {
+        position: relative;
+        transition: ease-in-out 0.3s;
+        text-align: center;
+    }
+    &__copy {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        padding: 0 1rem;
+        transition: ease-in-out 0.3s;
+        text-align: center;
+        width: 100%;
+    }
+
+    &:hover {
+        .slide-button {
+            &__copy {
+                transform: translateY(0);
+                color: $orange;
+            }
+            &__origin {
+                transform: translateY(-100%);
+                color: $orange;
+            }
+        }
+    }
+    &--green {
+        &:hover {
+            .slide-button {
+                &__copy {
+                    transform: translateY(0);
+                    color: $green;
+                }
+                &__origin {
+                    transform: translateY(-100%);
+                    color: $green;
+                }
+            }
+        }
+    }
+    &--js {
+        &:hover {
+            .slide-button {
+                &__copy {
+                    transform: translateY(100%);
+                    color: inherit;
+                }
+                &__origin {
+                    transform: translateY(0);
+                    color: inherit;
+                }
+            }
+        }
+        &.active {
+            .slide-button {
+                &__copy {
+                    transform: translateY(0);
+                    color: $orange;
+                }
+                &__origin {
+                    transform: translateY(-100%);
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+// <=414px
+@include media-breakpoint-down(xs) {
+    .slide-button {
+        padding: 0 1rem 0 calc(1rem + 5px);
+    }
+}

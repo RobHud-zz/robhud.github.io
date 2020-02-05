@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="50px" viewBox="0 0 8 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.0954008557">
+        <g id="2-slide" transform="translate(-1339.000000, -35.000000)" stroke="#F14F10">
+            <g id="menu" transform="translate(1178.000000, 30.000000)">
+                <g id="Group-4" transform="translate(106.000000, 30.000000) rotate(-270.000000) translate(-106.000000, -30.000000) translate(76.500000, -52.500000)">
+                    <g id="Group-2" transform="translate(5.000000, 4.000000)">
+                        <g id="Group-5" transform="translate(23.500000, 166.000000) rotate(-270.000000) translate(-23.500000, -166.000000) translate(-211.000000, 136.000000)">
+                            <path d="M57.5377888,32.6677813 C62.8491074,31.7704999 64.8434862,27.0047977 70.3474474,26.9577406 C75.8514087,26.9106835 80.0027638,33.1045192 87.5635549,32.8818875 C95.124346,32.6592559 98.0799587,26.8124528 104.140087,26.8755063 C110.200215,26.9385598 111.845629,32.3325828 117.537789,33.125" id="Path-9-Copy-62" transform="translate(87.537789, 30.000000) rotate(-270.000000) translate(-87.537789, -30.000000) "></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

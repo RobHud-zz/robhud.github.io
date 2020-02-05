@@ -1,0 +1,170 @@
+.bamboo {
+    margin: 0 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &__button {
+        background-color: transparent;
+        border: none;
+        height: 100%;
+        font-family: $font-secondary;
+        font-weight: 500;
+        font-size: 17px;
+        text-transform: uppercase;
+        line-height: 50px;
+    }
+    &--w-100 {
+        width: 100%;
+    }
+    &__cell {
+        position: relative;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        min-width: 5rem;
+        justify-content: center;
+        border-top: 1px solid $green;
+        border-bottom: 1px solid $green;
+        animation: 1s linear infinite;
+        background-image: url(../img/icons/wave.svg);
+        padding-right: 5px;
+
+        &:last-child {
+
+        }
+
+        &--black {
+            border-color: $brown;
+            background-image: url(../img/icons/wave-red.svg);
+
+            &:after, &:before {
+                background-color: $brown !important;
+            }
+            &:hover {
+                background-image: url(../img/icons/wave-red-op.svg) !important;
+            }
+        }
+
+        &:hover {
+            animation-name: waving;
+            background-image: url(../img/icons/wave-op.svg);
+        }
+
+        &:after, &:first-child:before {
+            content: '';
+            background-color: $green;
+            position: absolute;
+            width: 5px;
+            border-radius: 5px;
+            right: 0;
+            height: 125%;
+            top: -12.5%;
+            z-index: 1;
+        }
+        &:first-child:before {
+            left: 0;
+        }
+        &--clear {
+            background: none;
+            background-color: #fef5e3;
+
+            &:hover {
+                background: none !important;
+                background-color: #fef5e3;
+            }
+        }
+    }
+    &:before, &:after {
+        content: '';
+        background-image: url(../img/icons/bamboo.svg);
+        height: 34px;
+        width: 16px;
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &:before {
+        left: -20px;
+    }
+    &:after {
+        right: -20px;
+    }
+    &--no-signs {
+        margin: 0;
+
+        &:after, &:before {
+            content: none;
+        }
+    }
+    &--top-menu {
+        .bamboo__cell {
+            background-color: $cream;
+        }
+    }
+}
+
+@keyframes waving {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 62px;
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .bamboo {
+        &--no-sighns {
+            margin: 0;
+        }
+        &__cell {
+            &.search {
+                display: none;
+            }
+            &--mob-header {
+                background-image: none;
+                border: none;
+                width: calc(100% - 2vw);
+                left: 1vw;
+                height: 80px;
+                position: fixed;
+                padding: 0 2vw;
+                top: 0;
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid $beige;
+                background-color: $cream;
+
+                &:hover {
+                    background-image: none;
+                    animation: none;
+                }
+
+                &:after {
+                    content: none;
+                }
+            }
+        }
+        &--top-menu {
+            &:before, &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .bamboo {
+        &__cell {
+            &--mob-header {
+                width: calc(100% - 4vw);
+                left: 2vw;
+            }
+        }
+    }
+}

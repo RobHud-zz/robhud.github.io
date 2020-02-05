@@ -1,0 +1,293 @@
+.footer {
+    padding-top: 2rem;
+    margin-top: 7rem;
+    position: relative;
+
+    &__decor-item {
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 40px;
+    }
+    &__roll {
+        background-image: url(../img/icons/roll-p.svg);
+        height: 25px;
+        bottom: 0%;
+        right: 36%;
+    }
+    &__fish {
+        background-image: url(../img/icons/fishy-bg.svg);
+        height: 25px;
+        top: 5px;
+        right: -2%;
+    }
+    &__samuray {
+        background-image: url(../img/icons/samuray_bg.svg);
+        height: 40px;
+        bottom: -45px;
+        right: 20%;
+        opacity: .1;
+        transform: rotate(-15deg);
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url(../img/icons/wave-border.svg);
+        width: calc(100% + 2vw + 9px);
+        height: 29px;
+        transform: translateY(-100%);
+    }
+    &__inner {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    &__contacts {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    &__contacts-prefix {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        justify-content: center;
+        margin-right: 0.5em;
+        line-height: 1em;
+    }
+    &__contacts-tel {
+        position: relative;
+        font-size: 28px;
+        font-weight: 500;
+        align-items: center;
+        line-height: 1em;
+    }
+    &__contacts-sub {
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
+        white-space: nowrap;
+        font-size: 14px;
+        line-height: 1em;
+        color: rgba($color-main, 0.5);
+        right: 0;
+        padding-left: 15px;
+        background-color: transparent;
+        border: none;
+        transition: 0.3s ease-in-out;
+        text-align: center;
+        width: 13.5em;
+
+        &:hover {
+            color: $orange;
+        }
+
+        &:before {
+            content: '';
+            width: 10px;
+            height: 1em;
+            position: absolute;
+            background-image: url(../img/icons/phone.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: 0;
+            background-position: center;
+        }
+    }
+    &__timing {
+        font-size: 14px;
+        line-height: 1.5em;
+        margin: 0 1.5em;
+    }
+    &__bamboo {
+        &--left {
+            display: flex;
+
+            .bamboo__cell {
+                padding: 0;
+            }
+        }
+        &--right {
+            display: flex;
+            margin-left: -5px;
+        }
+    }
+    &__timing-text {
+        color: rgba($color-main, 0.5);
+    }
+    &__time {
+        font-size: 22px;
+        font-weight: 500;
+    }
+    &__link {
+        font-family: $font-secondary;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1em;
+        padding-top: 2px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+// <=1366px
+@include media-breakpoint-down(md) {
+    .footer {
+        .bamboo__cell {
+            min-width: 0;
+        }
+        .subscribe {
+            width: 5vw;
+        }
+        .slide-button {
+            padding: 0 25px;
+        }
+        &__bamboo {
+            margin-bottom: 1rem;
+        }
+
+        &__roll {
+            background-image: url(../img/icons/roll-p.svg);
+            height: 25px;
+            bottom: auto;
+            top: 20px;
+            right: auto;
+            left: 0;
+        }
+        &__fish {
+            background-image: url(../img/icons/fishy-bg.svg);
+            height: 25px;
+            top: 80%;
+            right: auto;
+            left: 20%;
+        }
+        &__samuray {
+            background-image: url(../img/icons/samuray_bg.svg);
+            height: 40px;
+            bottom: -45px;
+            right: 20%;
+            opacity: .1;
+            transform: rotate(-15deg);
+        }
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .footer {
+        &__inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        &__contacts {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .subscribe {
+            width: 10vw;
+        }
+        &::before {
+            left: calc(-2vw - 9px);
+            width: calc(100% + 4vw + 18px);
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .footer {
+        margin-top: 5rem;
+
+        &__contacts {
+            position: relative;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        &__roll {
+            top: 50%;
+        }
+        &__fish {
+            display: none;
+        }
+        &__samuray {
+            background-image: url(../img/icons/samuray_bg.svg);
+            height: 40px;
+            bottom: -45px;
+            right: 20%;
+            opacity: .1;
+            transform: rotate(-15deg);
+        }
+
+        &__time {
+            font-size: 34px;
+            margin-bottom: 20px;
+        }
+        &__contacts-sub {
+            display: inline-flex;
+            font-size: 17px;
+            left: 50%;
+            transform: translate(-50%, 100%);
+        }
+        &__bamboo {
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0 1rem;
+            width: 100%;
+
+            &:before, &:after {
+                content: none;
+            }
+
+            &--left {
+                margin-bottom: 2rem;
+                width: 100%;
+
+                .bamboo__cell {
+                    width: 25%;
+                }
+            }
+            &--right {
+                margin: 0;
+                width: 100%;
+
+
+            }
+            .bamboo__cell {
+                width: 50%;
+                padding: 0;
+                min-width: auto;
+            }
+        }
+        &__timing {
+            margin: 1rem 1.5rem;
+        }
+        &__timing-text {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .footer {
+        &__samuray {
+            bottom: -25px;
+            right: 0%;
+        }
+        .slide-button {
+            padding: 0;
+        }
+    }
+}

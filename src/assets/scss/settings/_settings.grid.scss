@@ -1,0 +1,21 @@
+// -------------------------------------
+// Grid
+// -------------------------------------
+
+$grid-gutter-width: 20px;
+$grid-columns: 12;
+$grid-breakpoints: (xs: 0, sm: 414px, pl: 667px, tablet: 768px, md: 1024px, lg: 1366px, xl: 1680px, hd: 1920px, full: 2560px);
+$container-max-widths: (pl: 640px, tablet: 740px, md: 1000px, lg: 1300px, xl: 1620px, hd: 1860px, full: 2480px);
+
+$gutter: $grid-gutter-width;
+
+/*
+phonePortrait (sm) 320 - 414
+phoneLandscape (pl) 415 - 667
+tabletPortrait (tablet) 668 - 768
+tabletLandscape (md) 769 - 1024
+desktop (lg) 1025 - 1366
+desktopWide (xl) 1367 - 1680
+desktopHD (hd) 1681 - 1920
+desktopMega (full) 1921 - 2560
+*/

@@ -1,0 +1,411 @@
+{{ header }}
+<div class="cat">
+    <div class="rellax" data-rellax-speed="-4">
+        <div class="rellax__layout">
+            <svg class="rellax__item rellax__sleepy-p"><use href="#sleepy-p"></use></svg>
+            <svg class="rellax__item rellax__fish-p"><use href="#fishy-bg"></use></svg>
+            <svg class="rellax__item rellax__samuray-p"><use href="#samuray-p"></use></svg>
+        </div>
+    </div>
+    <div class="rellax" data-rellax-speed="-3">
+     <div class="rellax__layout">
+         <svg class="rellax__item rellax__fishy-p"><use href="#fishy-bg"></use></svg>
+         <svg class="rellax__item rellax__pizza-p"><use href="#pizza-p"></use></svg>
+         <svg class="rellax__item rellax__roll-p"><use href="#roll-p"></use></svg>
+     </div>
+ </div>
+ <div class="rellax" data-rellax-speed="-5">
+    <div class="rellax__layouot" data-rellax-speed="3">
+        <svg class="rellax__item rellax__lapsha-p"><use href="#lapsha-p"></use></svg>
+        <svg class="rellax__item rellax__roll-sm-p"><use href="#roll-p"></use></svg>
+    </div>
+</div>
+<div class="bg-extra">
+    <svg class="bg-extra__cat-1">
+        <use href="#ierogliphs1"></use>
+    </svg>
+    <svg class="bg-extra__cat-2">
+        <use href="#ierogliphs2"></use>
+    </svg>
+    <svg class="bg-extra__cat-3">
+        <use href="#ierogliphs3"></use>
+    </svg>
+</div>
+<svg class="cat__waves">
+    <use href="#many-waves"></use>
+</svg>
+
+<div class="title cat__title"><h2 class="title__text">ДОСТАВКА СУШИ И ПИЦЦЫ <span class="title__tr">寿司とピザの配達</span></h2></div>
+    {% include 'sushi/img/home-icons.svg' %}
+</div>
+
+{% if main_rolly %}
+<section class="product-set">
+    <div class="ticker">
+        <div class="ticker__wrapper">
+            {% for i in 0..9 %}
+            <p class="ticker__text">хит продаж</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-tablet-4">
+            <div class="product-set__desc-container">
+                <div class="rellax rellax--set" data-rellax-speed="-2">
+                    <div class="rellax__layout">
+                        <svg class="rellax__item rellax__sleepy-p--rolls"><use href="#sleepy-p"></use></svg>
+                        <svg class="rellax__item rellax__fish-p--rolls"><use href="#fishy-bg"></use></svg>
+                        <svg class="rellax__item rellax__roll-p--rolls"><use href="#roll-p"></use></svg>
+                    </div>
+                </div>
+                <div class="product-set__desc-box">
+                    <div class="product-set__desc-waves"></div>
+                    <a href="{{ link_rolly }}"><h3 class="product-set__desc product-set__desc--rolls">РОЛЛЫ</h3></a>
+                    <p class="product-set__desc-subdesc">ロール</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-tablet-7">
+            <div class="product-set__product-box">
+
+                {% for roll in main_rolly %}
+                <div class="product-set__product {% if roll.special %} discounted {% endif %}">
+                    <a href="{{ roll.href }}">
+                        <div class="product-set__product-item">
+                            <img class="product-set__img" src="/image/{{ roll.image }}" alt="">
+                            <div class="discount"><p class="discount__jap">割引</p><p class="discount__pers">{{ roll.special_percent }}</p></div>
+                            <div class="product-set__product-bg"></div>
+                        </div>
+                        <div class="product-set__product-name">{{ roll.name }}</div>
+                        <div class="product-set__product-price">
+                            <span class="product-set__price">{{ roll.price }}</span>
+                            {% if roll.special %}
+                            <span class="product-set__discounted">{{ roll.special }}</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+                <div class="bamboo bamboo--no-signs product-set__button">
+                    <div class="bamboo__cell bamboo__cell--black">
+                        <a class="slide-button slide-button--js">
+                            <div class="slide-button__copy">все роллы</div>
+                            <div class="slide-button__origin">все роллы</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if bannerRolly %}
+{% for banner in bannerRolly %}
+    <section class="banner">
+        <svg class="banner__cat"><use href="#cat"></use></svg>
+        <div class="banner__extra banner__extra--roll">
+            <svg class="banner__circle-img">
+                <use href="#roll"></use>
+            </svg>
+        </div>
+        <div class="banner__extra banner__extra--text">
+            <div class="banner__extra-text">акция</div>
+        </div>
+        <div class="banner__extra banner__extra--fish">
+            <svg class="banner__circle-img">
+                <use href="#fish-symbol"></use>
+            </svg>
+        </div>
+
+        <div class="banner__inner">
+            <a aria-label="страница акции" href="{{ banner.link }}">
+                <img class="banner__img" data-src="/image/{{ banner.image }}" alt="">
+                <img class="banner__img banner__img--mob" data-src="/image/{{ banner.image_mob }}" alt="">
+            </a>
+            <div class="banner__left-border">
+                <div class="banner__symbols"></div>
+            </div>
+            <div class="banner__right-border">
+                <div class="banner__symbols"></div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+{% endif %}
+
+{% if main_pizzas %}
+<section class="product-set product-set--pizza">
+    <div class="row flex-row-reverse">
+        <div class="col-tablet-4">
+            <div class="product-set__desc-container">
+                <div class="rellax rellax--set" data-rellax-speed="-2">
+                    <div class="rellax__layout">
+                        <svg class="rellax__item rellax__pizza-p--pizza"><use href="#pizza-p"></use></svg>
+                        <svg class="rellax__item rellax__grib-p--pizza"><use href="#grib"></use></svg>
+                        <svg class="rellax__item rellax__pizza-full-p--pizza"><use href="#pizza_full-p"></use></svg>
+                    </div>
+                </div>
+                <div class="product-set__desc-box">
+                    <div class="product-set__desc-waves"></div>
+                    <a href="{{ link_pizza }}"><h3 class="product-set__desc product-set__desc--pizza">ПИЦЦА</h3></a>
+                    <p class="product-set__desc-subdesc">比萨饼</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-tablet-7">
+            <div class="product-set__product-box">
+                {% for pizza in main_pizzas %}
+                <div class="product-set__product {% if pizza.special %} discounted {% endif %}">
+                    <a href="{{ pizza.href }}">
+                        <div class="product-set__product-item">
+                            <img class="product-set__img" src="/image/{{ pizza.image }}" alt="">
+                            <div class="discount"><p class="discount__jap">割引</p><p class="discount__pers">{{ pizza.special_percent }}</p></div>
+                            <div class="product-set__product-bg"></div>
+                        </div>
+                        <div class="product-set__product-name">{{ pizza.name }}</div>
+                        <div class="product-set__product-price">
+                            <span class="product-set__price">{{ pizza.price }}</span>
+                            {% if pizza.special %}
+                            <span class="product-set__discounted">{{ pizza.special }}</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+                <div class="bamboo bamboo--no-signs product-set__button">
+                    <div class="bamboo__cell bamboo__cell--black">
+                        <a class="slide-button slide-button--js">
+                            <div class="slide-button__copy">открыть каталог</div>
+                            <div class="slide-button__origin">открыть каталог</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if bannerPizza %}
+    {% for banner in bannerPizza %}
+    <section class="banner banner--type-two">
+        <div class="banner__extra banner__extra--roll">
+            <svg class="banner__circle-img">
+                <use href="#roll"></use>
+            </svg>
+        </div>
+        <div class="banner__extra banner__extra--text">
+            <div class="banner__extra-text">акция</div>
+        </div>
+        <div class="banner__extra banner__extra--cat">
+            <div class="banner__extra--cat-wrapper">
+                <svg class="banner__circle-img surprise-cat">
+                    <use href="#cat"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="banner__inner">
+            <a aria-label="страница акции" href="{{ banner.link }}">
+                <img class="banner__img" data-src="/image/{{ banner.image }}" alt="">
+                <img class="banner__img banner__img--mob" data-src="/image/{{ banner.image_mob }}" alt="">
+            </a>
+            <div class="banner__left-border">
+                <div class="banner__symbols"></div>
+            </div>
+            <div class="banner__right-border">
+                <div class="banner__symbols"></div>
+            </div>
+        </div>
+    </section>
+    {% endfor %}
+{% endif %}
+
+{% if main_noodles %}
+<section class="product-set">
+    <div class="ticker">
+        <div class="ticker__wrapper">
+            {% for i in 0..9 %}
+            <p class="ticker__text">новинка</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-tablet-4">
+            <div class="product-set__desc-container">
+                <div class="rellax rellax--set" data-rellax-speed="-2">
+                    <div class="rellax__layout">
+                        <svg class="rellax__item rellax__palki-p--noodles"><use href="#palki"></use></svg>
+                    </div>
+                </div>
+                <div class="product-set__desc-box">
+                    <div class="product-set__desc-waves"></div>
+                    <a href="catalog.php"><h3 class="product-set__desc product-set__desc--noodles">ЛАПША</h3></a>
+                    <p class="product-set__desc-subdesc">ロール</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-tablet-7">
+            <div class="product-set__product-box">
+
+                {% for noodle in main_noodles %}
+                <div class="product-set__product {% if noodle.special %} discounted {% endif %}">
+                    <a href="{{ noodle.href }}">
+                        <div class="product-set__product-item">
+                            <img class="product-set__img" src="/image/{{ noodle.image }}" alt="">
+                            <div class="discount"><p class="discount__jap">割引</p><p class="discount__pers">{{ noodle.special_percent }}</p></div>
+                            <div class="product-set__product-bg"></div>
+                        </div>
+                        <div class="product-set__product-name">{{ noodle.name }}</div>
+                        <div class="product-set__product-price">
+                            <span class="product-set__price">{{ noodle.price }}</span>
+                            {% if noodle.special %}
+                            <span class="product-set__discounted">{{ noodle.special }}</span>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+
+                <div class="bamboo bamboo--no-signs product-set__button">
+                    <div class="bamboo__cell bamboo__cell--black">
+                        <a class="slide-button slide-button--js">
+                            <div class="slide-button__copy">смотреть все</div>
+                            <div class="slide-button__origin">смотреть все</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="delivery">
+    <div class="delivery__sumo-cont">
+        <svg class="delivery__sumo surprise-cat surprise-cat--sumo"><use href="#sumo"></use></svg>
+    </div>
+    <div class="delivery__container">
+        <div class="title"><h2 class="title__text">ОПЛАТА И ДОСТАВКА<span class="title__tr">付款和交付</span></h2></div>
+        <div class="delivery__box">
+
+            <div class="row no-gutters">
+                <div class="col-tablet-4 delivery__grid">
+                    <div class="delivery__item">
+                        <div class="delivery__title">БЕСПЛАТНАЯ ДОСТАВКА:</div>
+                        <ul class="delivery__list">
+                            {% for delivery in deliveries %}
+                            <li class="delivery__point">{{ delivery.title }}
+                                <p class="delivery__desc">{{ delivery.description }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-tablet-4 delivery__grid">
+                    <div class="delivery__item">
+                        <div class="delivery__title">ОПЛАТА:</div>
+                        <ul class="delivery__list">
+                            {% for payment in payments %}
+                                <li class="delivery__point">{{ payment.title }}
+                                    <p class="delivery__desc">{{ payment.description }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-tablet-4 delivery__grid">
+                    <div class="delivery__item">
+                        <div class="delivery__title">КОМПЛЕКТ ЗАКАЗА С РОЛЛАМИ:</div>
+                        <ul class="delivery__list">
+                            {% for kit in kits %}
+                            {% if kit.view %}
+                                <li class="delivery__point">{{ kit.title }}
+                                {% if kit.description %}
+                                    <p class="delivery__desc">{{ kit.description }}</p>
+                                {% endif %}
+                                </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="inspector">
+    <div class="inspector__log"></div>
+    <input class="inspector__input">
+    <button class="inspector__do"></button>
+    <style>
+        .inspector {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            display: none;
+        }
+        .inspector__input {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 50px;
+            background-color: hsla(11, 5%, 48%, 0.1);
+            padding: 0 10px;
+            color: white !important;
+            pointer-events: all;
+        }
+        .inspector__log {
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: hsla(11, 5%, 48%, 0.1);
+            padding: 0 10px;
+            color: white !important;
+            line-height: 18px;
+        }
+        .inspector__do {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: 0;
+            bottom: 0;
+            border: none;
+            background-color: blue;
+            opacity: 0.3;
+            pointer-events: all;
+        }
+    </style>
+    <script>
+        function say(info) {
+            var el  = document.createElement('span'),
+                log = document.querySelector('.inspector__log');
+
+            log.innerHTML = '';
+            el.innerHTML = eval(document.querySelector('.inspector__input').value);
+            log.appendChild(el);
+        }
+        function show(el) {
+            el.addEventListener('change')
+        }
+        document.querySelector('.inspector__do').addEventListener('click', function () {
+            var data   = document.querySelector('.inspector__input').value,
+                script = document.createElement('script');
+
+            script.innerHTML = data;
+            say(data)
+        })
+    </script>
+</div>
+
+{{ footer }}

@@ -1,0 +1,91 @@
+{{ header }}
+<main class="guide-list">
+  <ul class="bread-crumbs">
+    <li class="bread-crumbs__item"><a href="#">Главная</a></li>
+    <li class="bread-crumbs__item"><a href="#">Оплата и Доставка</a></li>
+  </ul>
+  <section class="guide">
+    <div class="delivery__container delivery__separate">
+      <div class="delivery__sumo-cont">
+        <svg class="delivery__sumo surprise-cat surprise-cat--sumo"><use href="#sumo"></use></svg>
+      </div>
+      <div class="title"><h2 class="title__text">БЕСПЛАТНАЯ ДОСТАВКА<span class="title__tr">付款和交付</span></h2></div>
+      <div class="delivery__box">
+        <img src="{{ theme_url }}/img/icons/pattern_dots.png" class="delivery__dots-top">
+        <img src="{{ theme_url }}/img/icons/pattern_dots2.png" class="delivery__dots-bot">
+        <svg class="delivery__fish delivery__fish--1">
+          <use href="#fish-symbol"></use>
+        </svg>
+
+        <div class="row no-gutters">
+          {% for delivery in deliveries %}
+          <div class="col-tablet-6 delivery__grid">
+            <div class="delivery__item delivery__item--guide">
+              <div class="delivery__locate">
+                <div class="delivery__upper">
+                  <p class="delivery__text-md">{{ delivery.title }}</p>
+                  <p class="delivery__text-black">{{ delivery.subtitle }}</p>
+                </div>
+                <div class="delivery__lower">
+                  <p class="delivery__text">{{ delivery.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="delivery__container delivery__separate">
+      <div class="title"><h2 class="title__text">ОПЛАТА<span class="title__tr">支払い</span></h2></div>
+      <div class="delivery__box">
+        <img src="{{ theme_url }}/img/icons/pattern_dots.png" class="delivery__dots-top">
+        <img src="{{ theme_url }}/img/icons/pattern_dots2.png" class="delivery__dots-bot">
+        <svg class="delivery__fish delivery__fish--3">
+          <use href="#fish-symbol"></use>
+        </svg>
+
+        <div class="row no-gutters">
+          {% for payment in payments %}
+          <div class="col-tablet-12 delivery__grid">
+            <div class="delivery__item delivery__item--col">
+              <svg class="delivery__img">
+                <use href="{{ payment.icon }}"></use>
+              </svg>
+              <p class="delivery__title">{{ payment.title }}</p>
+              <p class="delivery__text">{{ payment.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="delivery__container delivery__separate delivery__special">
+      <div class="title"><h2 class="title__text">комплект заказа с роллами<span class="title__tr">ロールで注文セット</span></h2></div>
+      <div class="delivery__box">
+        <img src="{{ theme_url }}/img/icons/pattern_dots.png" class="delivery__dots-top">
+        <img src="{{ theme_url }}/img/icons/pattern_dots2.png" class="delivery__dots-bot">
+        <svg class="delivery__fish delivery__fish--1">
+          <use href="#fish-symbol"></use>
+        </svg>
+
+        <div class="row no-gutters">
+          {% for kit in kits %}
+          <div class="col-tablet-4 delivery__grid">
+            <div class="delivery__item delivery__item--col">
+              <svg class="delivery__img">
+                <use href="{{ kit.icon }}"></use>
+              </svg>
+              <p class="delivery__text-black">{{ kit.description }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+{{ footer }}

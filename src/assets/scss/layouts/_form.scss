@@ -1,0 +1,211 @@
+.form-section {
+    margin-top: 3rem;
+    padding: 0 10%;
+}
+.order {
+    .form-section {
+        display: none;
+    }
+}
+.form {
+    width: 100%;
+    position: relative;
+
+    &__loader {
+        display: flex;
+        border: 1px dashed #F8E4CD;
+        border-radius: 11px;
+        padding: 5px;
+        align-items: center;
+        margin-bottom: 1.6rem;
+        background-color: transparent;
+        transition: ease-in-out 0.3s;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #fdedd8;
+        }
+    }
+    &__fish {
+        transform: rotate(100deg);
+        height: 35px;
+        width: 35px;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+    }
+    &__text-s {
+        font-size: 14px;
+        line-height: 18px;
+        color: rgba($brown, 0.5)
+    }
+    &__loader-img {
+        width: 25%;
+        height: 85px;
+        background-color: #FDEDD8;
+        border-radius: 9px;
+        margin-right: 10%;
+        position: relative;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 24px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(../img/icons/camera.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    &__col {
+        display: flex;
+        flex-direction: column;
+    }
+    &__row {
+        display: flex;
+        margin: 1rem 0;
+        justify-content: center;
+
+        &--between {
+            justify-content: space-between;
+        }
+    }
+    &__radio-box {
+        width: 49%;
+    }
+    &__inner {
+        width: 56%;
+        position: relative;
+        margin: auto;
+        margin-top: 2rem;
+        min-width: 275px;
+    }
+    &__radio{
+        visibility: hidden;
+        position: absolute;
+
+        &:checked ~ .form__input--radio {
+            background-color: rgba(248, 228, 205, 0.3);
+            color: rgba(71,40,33,.7);
+            font-weight: 400;
+        }
+    }
+    &__input {
+        width: 100%;
+        height: 66px;
+        border-radius: 50px;
+        background-color: $beige;
+        color: rgba($brown, 0.5);
+        border: 2px solid transparent;
+        margin-bottom: 5px;
+        padding-left: 2em;
+
+        &::placeholder {
+            color: rgba($brown, 0.5);
+        }
+
+        &:focus {
+            border-color: $orange;
+            color: $brown;
+            font-weight: 500;
+
+            &::placeholder {
+                color: rgba($brown, 0.5);
+            }
+        }
+        &--textarea {
+            height: auto;
+            border-radius: 22px;
+            padding-top: 1em;
+            margin-bottom: 1rem;
+        }
+        &--radio {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+
+            &:focus {
+                border-color: transparent;
+            }
+        }
+        &--call-area {
+            height: 150px;
+        }
+    }
+    &__text {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        text-align: center;
+        margin: 1rem 0;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+    }
+    &--no-mar {
+        margin-bottom: 0;
+    }
+    &__file {
+        visibility: hidden;
+        position: absolute;
+    }
+    &__file-view {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1em;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+            color: $orange;
+
+            &::before {
+                background-image: url(../img/icons/upload-orange.svg);
+            }
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            height: 9px;
+            width: 12px;
+            background-image: url(../img/icons/upload.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 5px;
+        }
+    }
+    &__load-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .form {
+        &__input {
+            &--call-area {
+                height: 80px;
+                padding-top: 5px;
+            }
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .form-section {
+        padding: 0;
+    }
+}

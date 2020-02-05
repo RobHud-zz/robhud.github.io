@@ -1,0 +1,317 @@
+.product-set {
+    padding-top: 7rem;
+    position: relative;
+
+    &--disc {
+        .discount {
+            display: flex;
+        }
+    }
+    &__button {
+        display: none;
+    }
+    &--pizza {
+        .product-set {
+            &__product-name {
+                padding-top: 1rem;
+            }
+            &__product-bg {
+                display: none;
+            }
+            &__img {
+                width: 60%;
+            }
+            &__desc-waves {
+                bottom: -60%;
+                left: 0;
+                background-image: url(../img/icons/wave-2-orange.svg);
+            }
+            &__product-box {
+                &:before, &:after {
+                    background-image: url(../img/icons/wave-red-big.svg);
+                }
+            }
+            &__desc-subdesc {
+                color: $orange;
+            }
+        }
+    }
+
+    &__desc-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__desc-box {
+        display: inline-block;
+        position: relative;
+    }
+    &__desc-waves {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 380%;
+        width: 200%;
+        background-size: 11.1%;
+        background-image: url(../img/icons/wave-2-green.svg);
+    }
+    &__desc-subdesc {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        color: $green;
+        font-weight: 600;
+    }
+    &__desc {
+        font-size: 46px;
+        margin: 0;
+        font-weight: 500;
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -120%);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: bottom;
+        }
+        &--rolls:before {
+            background-image: url(../img/icons/rolls.svg);
+        }
+        &--pizza:before {
+            background-image: url(../img/icons/pizza.svg);
+        }
+        &--noodles:before {
+            background-image: url(../img/icons/noodles.svg);
+        }
+    }
+    &__img {
+        width: 80%;
+        max-width: 80%;
+        max-height: 80%;
+    }
+    &__product-box {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+
+        &:before, &:after {
+            content: '';
+            width: 45px;
+            height: 100%;
+            position: absolute;
+            background-size: contain;
+            top: 0;
+            background-image: url(../img/icons/wave-green-big.svg);
+            background-repeat: repeat-y;
+        }
+        &:before {
+            left: 0;
+            transform: translateX(-50%);
+        }
+        &:after {
+            right: 0;
+            transform: translateX(50%);
+        }
+
+        &.triple {
+            justify-content: center;
+
+            .product-set__product {
+                flex: initial;
+                width: 45%;
+            }
+        }
+    }
+    &__product {
+        display: flex;
+        flex: 1 1;
+        flex-direction: column;
+        min-width: 45%;
+        margin: 5% 2.5%;
+        position: relative;
+        z-index: 1;
+    }
+    &__discounted {
+        display: none;
+        margin-left: 1em;
+        color: $green;
+        font-family: $font-secondary;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    &__product-name {
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 24px;
+        max-width: 80%;
+        margin: 2.5em auto 0.5em;
+    }
+    &__price {
+        color: $orange;
+        font-family: $font-secondary;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    &__product-bg {
+        background-color: $beige;
+        padding: 38%;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        animation: infinite 3s linear;
+    }
+    &__product-item {
+        position: relative;
+
+        &:hover {
+            .product-set__product-bg {
+                animation-name: swamp;
+            }
+        }
+    }
+}
+
+@keyframes swamp {
+    25% {
+        border-radius: 69% 55% 59% 59% / 68% 84% 48% 56% ;
+    }
+    50% {
+        border-radius: 87% 78% 86% 71% / 74% 90% 77% 82% ;
+    }
+    75% {
+        border-radius: 69% 78% 58% 89% / 74% 84% 57% 65%;
+    }
+    100% {
+        border-radius: 50%;
+    }
+}
+
+.product-set__product.discounted {
+    .product-set__discounted, .product-set__discount {
+        display: inline-flex;
+    }
+    .product-set__price {
+        text-decoration: line-through;
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .product-set {
+        &__desc-waves {
+            width: 150%;
+            height: 325%;
+            background-size: 16.6%;
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .product-set {
+        padding-top: 10rem;
+
+        &__product-box {
+            margin-top: 7rem;
+            position: relative;
+            
+            &::before, &::after {
+                height: calc(92vw);
+                width: 20px;
+                left: -20px;
+                background-image: url(../img/icons/wave-green-big--bold.svg);
+            }
+
+            &:before {
+                transform: rotate(-90deg);
+                transform-origin: top;
+                height: calc(92vw);
+                width: 20px;
+                left: -20px;
+                top: -50px;
+            }
+            &:after {
+                transform: rotate(90deg);
+                transform-origin: bottom;
+
+                top: auto;
+                bottom: 10px;
+            }
+        }
+        &__desc-box {
+            margin-top: 4rem;
+        }
+        &--pizza {
+            .product-set__product-box {
+                &::before, &::after {
+                    background-image: url(../img/icons/wave-red-big--bold.svg);
+                }
+            }
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .product-set {
+        padding-top: 6rem;
+
+        .rellax {
+            top: 0;
+            height: 150%;
+        }
+
+        &__desc-container {
+            position: relative;
+        }
+        &__product-box {
+            flex-direction: column;
+        }
+        &__button {
+            margin: -30px auto 60px;
+            display: block;
+        }
+        &__product {
+            margin-bottom: 3rem;
+        }
+        &__desc-waves {
+            height: 78px;
+            width: 101px;
+            background-size: 10.2%;
+            right: auto;
+            bottom: 15px;
+            left: -55%;
+        }
+        &--pizza {
+            .product-set{
+                &__desc-waves {
+                    height: 100px;
+                    width: 93px;
+                    left: 50%;
+                    transform: rotate(90deg);
+                    background-size: 14.5%;
+                    bottom: -100%;
+                }
+            }
+        }
+        &__product-box.triple {
+            .product-set__product {
+                width: 100%;
+            }
+        }
+    }
+}

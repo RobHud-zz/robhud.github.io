@@ -1,0 +1,316 @@
+.rellax {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    max-height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
+
+    &--top {
+        z-index: 2;
+    }
+
+    &--set {
+        height: 65%;
+    }
+    &__layout {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+
+    &__item {
+        width: 50px;
+        height: 60px;
+        position: absolute;
+    }
+
+    &__roll-p {
+        width: 35px;
+        right: 5%;
+        top: 35%;
+
+        &--rolls {
+            width: 39px;
+            top: 70%;
+            right: 10%;
+        }
+    }
+    &__roll-sm-p {
+        width: 25px;
+        top: 8%;
+        left: 3%;
+    }
+    &__grib-p {
+        &--pizza {
+            width: 23px;
+            top: -30%;
+            right: 0;
+        }
+    }
+    &__fish-p {
+        width: 79px;
+        top: 50%;
+        left: 2%;
+
+        &--rolls {
+            width: 79px;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    &__fishy-p {
+        top: 8%;
+        right: 10%;
+        width: 30px;
+    }
+    &__samuray-p {
+        width: 36px;
+        top: 2%;
+        left: 20%;
+    }
+    &__pizza-full-p {
+        &--pizza {
+            width: 56px;
+            top: 20%;
+            left: 10%;
+        }
+    }
+    &__sleepy-p {
+        width: 58px;
+        top: 25%;
+        left: 72%;
+
+        &--pizza {
+
+        }
+        &--rolls {
+            width: 79px;
+            top: 0%;
+            left: 5%;
+        }
+    }
+    &__pizza-p {
+        top: 50%;
+        right: 14%;
+        width: 63px;
+
+        &--pizza {
+            top: -70%;
+            left: 10%;
+            width: 63px;
+        }
+    }
+    &__palki-p {
+        &--noodles {
+            top: -80%;
+            right: 20%;
+            width: 63px;
+        }
+    }
+    &__lapsha-p {
+        top: 27%;
+        left: 14%;
+        width: 37px;
+    }
+    &__sym-p-1 {
+        width: 41px;
+        height: 43px;
+        top: -5px;
+        left: 45%;
+    }
+    &__sym-p-2 {
+        height: 46px;
+        width: 48px;
+        right: -10px;
+        top: 35vh;
+    }
+    &__sym-p-3 {
+        left: -10px;
+        top: 50vh;
+        height: 56px;
+        width: 58px;
+    }
+    &__sym-p-4 {
+        height: 46px;
+        width: 48px;
+        right: -10px;
+        top: 700px;
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .rellax--top {
+        display: none;
+    }
+}
+// <=768px
+@include media-breakpoint-down(pl) {
+    .rellax {
+        &__roll-p {
+            width: 22px;
+            top: -2%;
+            left: 24%;
+
+            &--rolls {
+                width: 39px;
+                top: 70%;
+                right: 10%;
+            }
+        }
+        &__grib-p {
+            &--pizza {
+                width: 23px;
+                top: -30%;
+                right: 0;
+            }
+        }
+        &__fish-p {
+            width: 79px;
+            top: 50%;
+            left: 2%;
+
+            &--rolls {
+                width: 29px;
+                top: 0;
+                left: 0;
+            }
+        }
+        &__fishy-p {
+            top: 8%;
+            right: 10%;
+            width: 30px;
+        }
+        &__samuray-p {
+            display: none;
+        }
+        &__pizza-full-p {
+            &--pizza {
+                width: 56px;
+                top: 20%;
+                left: 10%;
+            }
+        }
+        &__sleepy-p {
+            width: 30px;
+            top: 10%;
+            left: 62%;
+
+            &--pizza {
+
+            }
+            &--rolls {
+                width: 79px;
+                top: 0%;
+                left: 5%;
+            }
+        }
+        &__pizza-p {
+            top: 50%;
+            right: 14%;
+            width: 63px;
+
+            &--pizza {
+                top: -70%;
+                left: 10%;
+                width: 63px;
+            }
+        }
+        &__palki-p {
+            &--noodles {
+                top: -80%;
+                right: 20%;
+                width: 63px;
+            }
+        }
+        &__lapsha-p {
+            top: 15%;
+            left: 25%;
+            width: 25px;
+        }
+    }
+}
+// <=414px
+@include media-breakpoint-down(xs) {
+    .rellax{
+        top: -120px;
+
+        &__fish-p {
+            width: 24px;
+            top: 40px;
+            left: 60%
+        }
+        &__sleepy-p {
+            width: 27px;
+            top: 170px;
+            left: 66%;
+        }
+        &__lapsha-p {
+            top: 180px;
+        }
+        &__roll-sm-p {
+            display: none;
+        }
+        &__fishy-p {
+            display: none;
+        }
+        &__pizza-p {
+            display: none;
+        }
+        &__samuray-p {
+            display: none;
+        }
+        &__roll-p {
+            top: 67px;
+        }
+    }
+
+    .rellax {
+        &__fish-p--rolls {
+            width: 35px;
+            top: -10px;
+            left: 20px;
+        }
+        &__sleepy-p--rolls {
+            width: 32px;
+            top: 0;
+            left: 85%;
+        }
+        &__roll-p--rolls {
+            width: 25px;
+            top: 65%;
+            right: 10%;
+        }
+    }
+
+    .rellax {
+        &__pizza-p--pizza {
+            top: -14px;
+            left: auto;
+            right: 2%;
+            width: 35px;
+            transform: rotate(-45deg);
+        }
+        &__grib-p--pizza {
+            width: 18px;
+            top: 70%;
+            right: 0;
+        }
+        &__pizza-full-p--pizza {
+            width: 36px;
+            top: 60%;
+            left: 0%;
+        }
+        &__palki-p--noodles {
+            top: 40%;
+            right: 0%;
+            width: 40px;
+        }
+    }
+}

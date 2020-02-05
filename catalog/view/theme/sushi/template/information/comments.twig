@@ -1,0 +1,103 @@
+{{ header }}
+
+<section class="comments">
+  <div class="comments__head">
+    <ul class="bread-crumbs comments__crumbs">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="bread-crumbs__item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+    </ul>
+    <div class="bamboo bamboo--no-signs">
+      <div class="bamboo__cell bamboo__cell--black comments__cell">
+          <button class="slide-button comments__button bamboo__button">
+            <div class="slide-button__copy">{{ text_add_review }}</div>
+            <div class="slide-button__origin">{{ text_add_review }}</div>
+          </button>
+      </div>
+    </div>
+  </div>
+  {% if reviews %}
+  {% for review in reviews %}
+  <div class="comments__body">
+    <div class="delivery__container comments__review">
+      <div class="delivery__box comments__item">
+        <svg class="delivery__fish delivery__fish--1">
+          <use href="#fish-symbol"></use>
+        </svg>
+        <div class="row no-gutters">
+          <div class="col-tablet-12 delivery__grid">
+            <div class="delivery__item comments__review-inner">
+              <p class="comments__date">{{ review.date }}</p>
+              <div class="comments__img-box">
+                <img class="comments__img" src="{{ review.thumb }}" alt="">
+              </div>
+              <div class="comments__review-col">
+                <p class="comments__user">{{ review.author }}</p>
+				{% if review.card %}
+				<div class="comments__card">{{ text_card }}: {{ review.card }}</div>
+				{% endif %}
+                <p class="comments__text">{{ review.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	{% if review.response %}
+    <div class="comments__answer">
+      <svg class="comments__answer-cat">
+        <use href="#cat"></use>
+      </svg>
+      <p class="comments__answer-text">{{ review.response }}</p>
+    </div>
+	{% endif %}
+  </div>
+  {% endfor %}
+  {% else %}
+  {{ text_empty }}
+  {% endif %}
+</section>
+
+{{ pagination }}
+
+<div class="pop pop--comments">
+  <div class="pop__wrapper">
+    <div class="pop__inner">
+      <div class="pop__cross">
+        <button class="pop__cross-in"></button>
+      </div>
+      <div class="pop__sym"></div>
+      <p class="pop__title">ОТЗЫВ</p>
+      <p class="pop__text">Поделитесь своим отзывом и получите подарок при следующем заказе</p>
+      <form novalidate class="form" onsubmit="writeReview(this, '{{ ajax_url }}'); return false;" enctype="multipart/form-data">
+        <svg class="form__fish">
+          <use href="#fish-symbol"></use>
+        </svg>
+        <input required name="author" class="form__input" placeholder="Ваше имя">
+        <input required name="card" class="form__input" placeholder="Номер карты">
+        <input required name="email" class="form__input" type="email" placeholder="Ваш e-mail">
+        <textarea required class="form__input form__input--textarea form--no-mar" name="text" cols="30" rows="5" placeholder="Ваш отзыв"></textarea>
+        <label class="form__loader" for="file">
+          <div id="output" class="form__loader-img"></div>
+          <div class="form__col">
+            <div class="form__file-box">
+              <input class="form__file" name="photo" id="file" type="file">
+              <p class="form__file-view">Загрузить фото заказа</p>
+            </div>
+            <p class="form__text-s">( максимальный размер - 10 Мб)</p>
+          </div>
+        </label>
+        <div class="bamboo bamboo--no-signs">
+          <div class="bamboo__cell bamboo__cell--black">
+            <button class="slide-button comments__button bamboo__button order-trigger">
+              <div class="slide-button__copy">отправить</div>
+              <div class="slide-button__origin">отправить</div>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{ footer }}

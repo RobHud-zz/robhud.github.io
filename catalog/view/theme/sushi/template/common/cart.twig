@@ -1,0 +1,73 @@
+<button aria-label="открыть мобильное меню" class="burger">
+    <div class="burger__line burger__line--1"></div>
+    <div class="burger__line burger__line--2"></div>
+    <div class="burger__line burger__line--3"></div>
+</button>
+<a aria-label="На главную" href="index.php" class="cart__logo">
+    <svg>
+        <use href="#logo-mob"></use>
+    </svg>
+</a>
+<button class="cart__button">
+    <svg class="cart__icon"><use href="#cart"></use></svg>
+    <span class="cart__cross-icon"></span>
+    <div class="cart__ray cart__ray--1"></div>
+    <div class="cart__ray cart__ray--2"></div>
+    <div class="cart__ray cart__ray--3"></div>
+    <p class="cart__button-count"><span>{{ count }}</span></p>
+</button>
+<div class="cart" id="quick-cart">
+    <div class="cart__box">
+        <svg class="cart__symbol cart__symbol--1">
+            <use href="#cart-symbol-1"></use>
+        </svg>
+        <svg class="cart__symbol cart__symbol--2">
+            <use href="#cart-symbol-1"></use>
+        </svg>
+        <svg class="cart__symbol cart__symbol--3">
+            <use href="#cart-symbol-2"></use>
+        </svg>
+        <div class="cart__list">
+            <div class="cart__list-wrapper">
+                {% if products %}
+                {% for product in products %}
+                    <div class="cart__item">
+                        <button onclick="cart.remove('{{ product.cart_id }}');" class="cart__remove"><span class="cart__remove-plus">+</span></button>
+                        <div class="cart__img-container">
+                            <img class="cart__img" src="/image/{{ product.image }}" alt="">
+                        </div>
+                        <div class="cart__details">
+                            <div class="cart__name">{{ product.name }}</div>
+                            <div class="cart__bot">
+                                <div class="cart__price">{{ product.price }}</div>
+                                <div class="cart__control">
+                                    <button onclick="cart.update('{{ product.cart_id }}', parseInt(this.nextElementSibling.textContent) - 1);" class="cart__minus"><span class="cart__minus-span">-</span></button>
+                                    <p class="cart__count">{{ product.quantity }}</p>
+                                    <button onclick="cart.update('{{ product.cart_id }}', parseInt(this.previousElementSibling.textContent) + 1);" class="cart__plus"><span class="cart__plus-span">+</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% else %}
+                {{ text_empty }}
+                {% endif %}
+            </div>
+        </div>
+        {% if products %}
+        <div class="cart__info">
+            <p class="cart__sum">{{ text_sum }} {{ cart_total }}</p>
+            <div class="bamboo cart__bamboo">
+                <div class="bamboo__cell cart__cell">
+                    <a href="{{ cart }}" class="cart__ready">
+                        <div class="slide-button">
+                            <div class="slide-button__copy">{{ text_checkout }}</div>
+                            <div class="slide-button__origin">{{ text_checkout }}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

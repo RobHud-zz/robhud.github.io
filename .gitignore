@@ -1,0 +1,7 @@
+/system/storage/cache
+/image/cache
+config.php
+/admin/config.php
+/.idea
+/node_modules
+/storage

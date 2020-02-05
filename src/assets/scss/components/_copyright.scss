@@ -1,0 +1,42 @@
+.copyright {
+    width: 100%;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    pointer-events: none;
+
+    &__text {
+        font-size: 12px;
+        font-weight: 500;
+        opacity: 0.5;
+    }
+    &__cat {
+        position: absolute;
+        width: 65px;
+        height: 80px;
+        left: 10%;
+        z-index: 0;
+        bottom: -4px;
+    }
+    &__inner {
+        height: 30px;
+        width: 100%;
+        display: flex;
+        text-align: center;
+        background-color: $beige;
+        margin-top: 50px;
+        align-items: center;
+        justify-content: center;
+        box-sizing: content-box;
+        z-index: 1;
+        position: relative;
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .copyright__cat {
+        left: 0;
+    }
+}

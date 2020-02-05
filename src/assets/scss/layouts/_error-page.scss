@@ -1,0 +1,77 @@
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 45vw;
+    text-align: center;
+    margin: auto;
+    padding: 4vw 15% 4vw 0;
+
+    &__title {
+        font-family: $font-secondary;
+        font-size: 46px;
+        font-weight: 500;
+    }
+    &__text {
+        color: rgba(71,40,33,0.5);
+        font-size: 14px;
+        line-height: 18px;
+        margin: 0 auto 30px;
+        max-width: 300px;
+    }
+    &__error {
+        font-family: $font-secondary;
+        color: $cream;
+        font-size: 375px;
+        line-height: 0.9em;
+        text-shadow: $grey 1px 1px 1px, $grey -1px -1px 1px,
+                     $grey -1px 1px 1px, $grey 1px -1px 1px;
+    }
+    &__img {
+        position: relative;
+    }
+}
+.error {
+    &__sign {
+        position: absolute;
+        bottom: 0;
+        height: 80px;
+        opacity: 0.5;
+        width: 100px;
+
+        &--left {
+            left: -15vw;
+        }
+        &--right {
+            right: 0;
+        }
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .error-page {
+        padding-right: 0;
+    }
+}
+
+// <=667px
+@include media-breakpoint-down(sm) {
+    .error-page {
+        &__error {
+            font-size: 300px;
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .error-page {
+        max-width: 100%;
+        padding-top: 25vh;
+
+        &__error {
+            font-size: 220px;
+        }
+    }
+}

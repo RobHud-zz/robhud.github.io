@@ -1,0 +1,107 @@
+.keywords {
+    margin: 20px 0;
+
+    &__box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+    &__item {
+        height: 60px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        background-color: $green;
+        color: white;
+        padding: 0 2rem;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        border: none;
+        transition: 0.5s ease;
+        
+        &:hover {
+            background-color: #32af93;
+            color: white !important;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+    &__cross {
+        background: transparent;
+        border: none;
+        position: relative;
+        width: 14px;
+        height: 14px;
+        padding: 0;
+        margin-right: 15px;
+
+        &:before, &:after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 1px;
+            background-color: white;
+            top: 50%;
+            left: 50%;
+            pointer-events: none;
+        }
+        &:before {
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+        &:after {
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+    }
+    &__text {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1em;
+        text-transform: uppercase;
+    }
+
+    &--catalog {
+        .keywords {
+            &__box {
+                justify-content: flex-start;
+            }
+            &__item {
+                height: 26px;
+                background-color: $orange;
+                border-radius: 26px;
+                padding: 0 1rem;
+
+                &:hover {
+                    background-color: #dc4f18;
+                    color: white !important;
+                }
+            }
+            &__text {
+                font-size: 14px;
+                text-transform: none;
+                font-weight: 400;
+                padding-bottom: 2px;
+            }
+            &__cross {
+                height: 12px;
+                width: 12px;
+                margin-right: 10px;
+                opacity: 0.5;
+                transition: 0.3s ease;
+            }
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .keywords {
+        &__item {
+            padding: 0 1.35rem;
+            height: 40px;
+        }
+    }
+}

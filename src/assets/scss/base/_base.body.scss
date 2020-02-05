@@ -1,0 +1,131 @@
+// -------------------------------------
+// Body
+// -------------------------------------
+html {
+  width: 100%;
+}
+body {
+  height: auto;
+  font-size: pxtorem(17px);
+  font-family: $font-default;
+  font-weight: 400;
+  line-height: (28/17);
+  color: $brown;
+  min-width: 320px;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;   /* Firefox */
+  -webkit-font-smoothing: antialiased; /* WebKit  */
+  background-color: $orange;
+  &::placeholder {}
+  &::selection {
+    background-color: $color-accent;
+    color: $color-white;
+  }
+  padding: 0 1vw;
+
+  &.inactive {
+    position: fixed;
+    overflow: hidden;
+  }
+}
+.layout {
+  background-color: $cream;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 30px 2% 70px;
+  position: relative;
+  min-height: 100vh;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  -webkit-text-fill-color: rgba(71, 40, 33, 0.5);
+  -webkit-box-shadow: 0 0 0px 1000px #000 #f8e4cd;
+  transition: background-color 5000s ease-in-out 0s;
+}
+button, input, textarea {
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    outline: none;
+  }
+}
+button {
+  user-select: none;
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+}
+input, textarea {
+  &:focus:required:invalid {}
+  &:required:valid {}
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: #f8e4cd;
+  webkit-box-shadow: 0 0 0px 1000px #000 #f8e4cd;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: 'DinCondensed';
+  line-height: 1em;
+}
+
+p {
+  margin: 0;
+}
+a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+  .layout {
+    padding-top: 100px;
+  }
+  html {
+    overflow-x: hidden;
+  }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+  body {
+    padding: 0 2vw;
+  }
+}

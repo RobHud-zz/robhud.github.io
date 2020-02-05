@@ -1,0 +1,123 @@
+{{ header }}
+<div class="decorations">
+    <svg class="decorations__roll"><use href="#roll-p"></use></svg>
+    <svg class="decorations__samuray"><use href="#samuray-p"></use></svg>
+    <svg class="decorations__sleepy"><use href="#sleepy-p"></use></svg>
+    <svg class="decorations__fish"><use href="#fishy-bg"></use></svg>
+</div>
+{% if keywords %}
+<div class="keywords">
+    <div class="keywords__box">
+    {% for key, keyword in keywords %}
+      <button onclick="resetSearch('{{ key }}')" class="keywords__item">
+            <div class="keywords__cross"></div>
+            <p class="keywords__text">{{ keyword }}</p>
+      </button>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% if products %}
+  <section class="products">
+    <div class="row">
+      {% for product in products %}
+        <div class="col-pl-6 col-lg-4">
+          <div class="products__item {% if product.special %} products--discounted discounted {% endif %} {{ product.tags }}">
+            <div class="products__upper">
+
+              {% if product.special %}
+                <div class="discount">
+                  <p class="discount__jap">割引</p>
+                  <p class="discount__pers">{{ product.special_percent }}</p>
+                </div>
+              {% endif %}
+
+              <a class="products__wrapper" href="{{ product.href }}">
+                <div class="products__bg">
+                  <div class="products__discount"></div>
+                  <img src="{{ product.thumb }}" alt="" class="products__img">
+                </div>
+              </a>
+              <div class="products__name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+              <div class="products__desc">{{ product.components }}</div>
+            </div>
+            <div class="products__lower">
+              <div class="products__price">
+                <div class="products__price-box">
+                  <span class="products__current">{{ product.price }}</span>
+                  {% if product.special %}
+                    <span class="products__discounted">{{ product.special }}</span>
+                  {% endif %}
+                </div>
+                {% if product.weight > 0 %}
+                  <div class="products__mass">{{ product.weight }} г</div>
+                {% endif %}
+              </div>
+              <div class="bamboo bamboo--no-signs">
+                <div class="bamboo__cell products__left-cell bamboo__cell--black">
+                  <div class="products__count-box">
+                    <p class="products__count">1</p>
+                    <div class="products__buttons">
+                      <button class="products__plus"><span class="products__span"></span></button>
+                      <button class="products__minus"><span class="products__span"></span></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="bamboo__cell products__right-cell bamboo__cell--black">
+                  <button onclick="cart.add(this, '{{ product.product_id }}', this.closest('.bamboo--no-signs').querySelector('.products__count').textContent)" class="products__status bamboo__button">
+                    <div class="slide-button slide-button--js">
+                      <div class="slide-button__copy">добавлено</div>
+                      <div class="slide-button__origin">добавить в корзину</div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% else %}
+    <div class="delivery__container">
+        <div class="delivery__box">
+            <div class="delivery__cat-container">
+                <svg class="delivery__cat"><use href="#cat"></use></svg>
+            </div>
+            <svg class="delivery__cat-msg"><use href="#meow"></use></svg>
+            <svg class="delivery__fish delivery__fish--1">
+                <use href="#fish-symbol"></use>
+            </svg>
+            <svg class="delivery__fish delivery__fish--2">
+                <use href="#fish-symbol"></use>
+            </svg>
+
+            <div class="row no-gutters">
+                <div class="col-tablet-12 delivery__grid">
+                    <div class="delivery__item delivery__item--syms sum__inner">
+                        <p class="delivery__text-big">УПС!</p>
+                        <p class="delivery__text">{{ text_empty }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{{ pagination }}
+
+<script>
+    function resetSearch(key) {
+        var url = '';
+        var arr = '{{ search }}'.split(' ');
+        arr.splice(key, 1);
+        if (arr.length > 0)
+            url = '{{ search_url }}' + arr.join(' ');
+        else
+            url = '/';
+        location = url;
+    }
+</script>
+
+{{ footer }}

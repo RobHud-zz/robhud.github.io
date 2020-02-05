@@ -1,0 +1,51 @@
+.bg-extra {
+    position: absolute;
+    width: calc(100% + 3vw + 9px);
+    height: 100%;
+
+    &__cat-1 {
+        position: absolute;
+        top: -11rem;
+        left: 0;
+        height: 80px;
+        width: 80px;
+    }
+    &__cat-2 {
+        position: absolute;
+        top: 70%;
+        left: 85%;
+        height: 80px;
+        width: 80px;
+    }
+    &__cat-3 {
+        position: absolute;
+        top: 35%;
+        right: calc(1vw - 1px);
+        height: 400px;
+        width: 115px;
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .bg-extra {
+        &__cat-1 {
+            top: 0;
+        }
+        &__cat-2 {
+            display: none;
+        }
+    }
+}
+// <=414px
+@include media-breakpoint-down(xs) {
+    .bg-extra {
+        &__cat-3 {
+            display: none;
+        }
+        &__cat-1 {
+            left: 140px;
+            height: 68px;
+        }
+    }
+}

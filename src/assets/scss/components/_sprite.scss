@@ -1,0 +1,13 @@
+#sprite {
+    display: none;
+}
+.sprite {
+    &__default {
+        width: 20px;
+        height: 20px;
+    }
+    &__search {
+        width: 20px;
+        height: 20px;
+    }
+}

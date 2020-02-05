@@ -1,0 +1,19 @@
+.surprise-cat {
+    animation: forwards 0.2s ease-in;
+    animation-delay: 0.6s;
+    transform: translateY(60%);
+
+    &.active {
+        animation-name: surprise;
+    }
+
+    &--sumo {
+        transform: translateX(200%);
+        animation-duration: 0.8s;
+    }
+}
+@keyframes surprise {
+    to {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,31 @@
+.discount {
+    background-image: url(../img/icons/discount.svg);
+    position: absolute;
+    top: 15%;
+    right: 25%;
+    transform: translate(50%, -50%);
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: $cream;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    font-family: $font-secondary;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+    &__jap {
+        font-family: $font-jap;
+        font-size: 20px;
+    }
+    &__perc {
+        font-size: 30px;
+        font-family: $font-secondary;
+    }
+}

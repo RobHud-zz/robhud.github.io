@@ -1,0 +1,19 @@
+.filter {
+    display: flex;
+    justify-content: space-between;
+
+    &__left {
+        display: flex;
+    }
+}
+
+// <=667px
+@include media-breakpoint-down(sm) {
+    .filter {
+        flex-direction: column;
+
+        &__left {
+            flex-direction: column;
+        }
+    }
+}

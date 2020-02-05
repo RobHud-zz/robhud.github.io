@@ -1,0 +1,208 @@
+.cat {
+    width: 100%;
+    padding-right: 15%;
+    padding-top: 5rem;
+    position: relative;
+
+    &__waves {
+        width: 14vw;
+        height: 10vw;
+        position: absolute;
+        bottom: 10%;
+        left: -6%;
+    }
+    &__left-stick, &__right-stick {
+        transform-origin: bottom;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(.51,0,.45,.66);
+        animation-direction: alternate;
+    }
+    &__left-stick {
+        animation-name: left-stick;
+    }
+    &__right-stick {
+        animation-name: right-stick;
+    }
+    &__sumo {
+        transform-origin: center bottom;
+        animation: sumo 6s linear infinite;
+    }
+    
+    @keyframes sumo {
+        10% {
+            transform: rotate(10deg);
+        }
+        20% {
+            transform: rotate(-5deg);
+        }
+        30% {
+            transform: rotate(10deg);
+        }
+        40% {
+            transform: rotate(-5deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        60% {
+            transform: rotate(-5deg);
+        }
+        65% {
+            transform: rotate(0);
+        }
+
+    }
+
+    //&__sumo {
+    //
+    //    &--pain, &--die {
+    //        //display: none;
+    //        //animation: 4s linear infinite sumo;
+    //    }
+    //    &--fat {
+    //
+    //    }
+    //    &--pain {
+    //        animation-delay: 2s;
+    //    }
+    //    &--die {
+    //        animation-delay: 4s;
+    //    }
+    //}
+    //
+    //@keyframes sumo {
+    //    to {
+    //        display: block;
+    //    }
+    //}
+
+    &__kitty {
+        transform: translate(326px, 0);
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: cubic-bezier(.51,0,.45,.66);
+        animation-direction: alternate;
+        animation-name: cat;
+    }
+    &__all {
+        transform: translateY(40px);
+    }
+    &__title {
+        text-align: center;
+        font-size: 46px;
+        font-weight: 500;
+        position: relative;
+
+        .title__text {
+            &:after {
+                content: '';
+                position: absolute;
+                height: 50px;
+                width: 100px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-image: url(../img/icons/meow.svg);
+                transition: 0.4s cubic-bezier(.61,1.72,.83,1.08);
+                opacity: 0;
+                right: 0;
+                top: 0;
+                transform: translate(50%, -50%);
+            }
+            &:hover:after {
+                opacity: 1;
+                transform: translate(100%, -100%);
+            }
+        }
+    }
+    &__jap-1, &__jap-2, &__jap-3 {
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-name: jap;
+    }
+    &__jap-2 {
+        animation-delay: 0.3s;
+    }
+    &__jap-3 {
+        animation-delay: 0.7s;
+    }
+}
+
+@keyframes left-stick {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(-10deg);
+    }
+}
+@keyframes right-stick {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(10deg);
+    }
+}
+@keyframes cat {
+    0% {
+        transform: translate(326px, 0);
+    }
+    75% {
+        transform: translate(326px, 0);
+    }
+    100% {
+        transform: translate(326px, -40px);
+    }
+}
+@keyframes jap {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .cat {
+        padding: 0;
+    }
+    .cat__title .title__text:after {
+        top: 110px;
+        right: 110px;
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .cat {
+        margin-top: 100px;
+
+        .bg-extra {
+            height: calc(100% + 100px);
+            bottom: 0;
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .cat {
+        width: calc(100% + 300px);
+        transform: translateX(-140px);
+
+        &__title {
+            width: 47%;
+            transform: translateX(-10px);
+            margin: auto;
+
+            .title__tr {
+                display: none;
+            }
+        }
+    }
+}

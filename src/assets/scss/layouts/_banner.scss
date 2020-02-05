@@ -1,0 +1,254 @@
+.banner {
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+    position: relative;
+
+    &__inner {
+        border-top: 2px solid #472821;;
+        border-bottom: 2px solid #472821;;
+        width: 100%;
+        position: relative;
+    }
+    &__left-border, &__right-border {
+        position: absolute;
+        top: -20px;
+        width: 15px;
+        height: calc(100% + 40px);
+        background-color: #472821;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        &:after, &:before {
+            content: '';
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    }
+    &__left-border {
+        left: 0;
+    }
+    &__right-border {
+        right: 0;
+    }
+    &__img {
+        width: 100%;
+
+        &--mob {
+            display: none;
+        }
+    }
+    &__symbols {
+        height: 80%;
+        width: 75%;
+        background-size: 95%;
+        background-image: url(../img/icons/banner-border.svg);
+    }
+    &__cat {
+        position: absolute;
+        top: -50px;
+        right: 10%;
+        height: 90px;
+        width: 70px;
+    }
+    &__extra {
+        position: absolute;
+        background-image: url(../img/icons/dashed-circle.svg);
+        z-index: 1;
+        background-size: contain;
+        transform: translateY(0%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &--fish {
+            bottom: 0;
+            left: 2%;
+            height: 150px;
+            width: 150px;
+            transform: translateY(80%);
+            animation: infinite ease-in-out alternate 2s fish;
+            animation-delay: 0.4s;
+
+        }
+        &--roll {
+            bottom: 0;
+            right: 5%;
+            height: 120px;
+            width: 120px;
+            transform: translateY(60%);
+            animation: infinite ease-in-out alternate 2s roll;
+            animation-delay: 0.7s;
+        }
+        &--text {
+            top: 0;
+            left: 50%;
+            height: 100px;
+            width: 100px;
+            color: $orange;
+            transform: translateY(-80%);
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            animation: infinite ease-in-out alternate 2s text;
+        }
+    }
+    &__circle-img {
+        height: 30%;
+        width: 30%;
+    }
+
+    &--type-two {
+        .banner__extra--roll {
+            bottom: -20px;
+            height: 100px;
+            width: 100px;
+            left: 15%;
+            color: $orange;
+            transform: translateY(80%);
+            z-index: 1;
+        }
+        .banner__extra--text {
+            top: 0;
+            left: auto;
+            right: 10%;
+            height: 100px;
+            width: 100px;
+        }
+        .banner__extra--cat {
+            top: -57px;
+            left: 5%;
+            height: 100px;
+            width: 100px;
+            animation: none;
+            background-image: none;
+
+            &-wrapper {
+                height: 57px;
+                width: 100px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                overflow: hidden;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: -95px;
+                height: 120px;
+                width: 120px;
+                background-image: url(../img/icons/dashed-circle.svg);
+                background-size: contain;
+                animation: infinite ease-in-out alternate 2s roll;
+                animation-delay: 0.2s;
+            }
+            .banner__circle-img {
+                width: 100px;
+                height: 100px;
+                z-index: 0;
+            }
+        }
+    }
+}
+
+@keyframes text {
+    from {
+        transform: translateY(-80%) rotate(-5deg);
+    }
+    to {
+        transform: translateY(-80%) rotate(5deg);
+    }
+}
+@keyframes roll {
+    from {
+        transform: translateY(60%) rotate(-5deg);
+    }
+    to {
+        transform: translateY(60%) rotate(5deg);
+    }
+}
+@keyframes fish {
+    from {
+        transform: translateY(80%) rotate(-5deg);
+    }
+    to {
+        transform: translateY(80%) rotate(5deg);
+    }
+}
+
+
+// <=1366px
+@include media-breakpoint-down(md) {
+    .banner {
+        &__extra {
+            &--roll {
+                //right: 80%;
+            }
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .banner {
+        &__cat {
+            display: none;
+        }
+        &__img {
+            display: none;
+
+            &--mob {
+                display: block;
+            }
+        }
+        &__inner {
+            border-top: none;
+            border-bottom: none;
+            border-left: 2px solid #472821;
+            border-right: 2px solid #472821;
+        }
+        &__left-border {
+            transform: rotate(-90deg);
+            transform-origin: top;
+            height: calc(60.5% + 20px);
+            left: -18px;
+            top: 0;
+        }
+        &__right-border {
+            transform: rotate(90deg);
+            transform-origin: bottom;
+            height: calc(60.5% + 20px);
+            left: -18px;
+            top: auto;
+            bottom: 0;
+        }
+        &__extra {
+            &--cat {
+                display: none;
+            }
+            &--fish {
+                height: 85px;
+                width: 85px;
+            }
+            &--text {
+                height: 85px;
+                width: 85px;
+            }
+            &--roll {
+                display: none;
+            }
+        }
+        &--type-two {
+            .banner__extra {
+                &--roll {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

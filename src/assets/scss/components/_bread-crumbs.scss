@@ -1,0 +1,45 @@
+.bread-crumbs {
+    color: rgba($brown, 0.5);
+    display: flex;
+
+    &__item {
+        white-space: nowrap;
+        padding-right: 14px;
+        line-height: 1em;
+        font-size: 14px;
+        position: relative;
+        transition: 0.3s ease color;
+
+        &:hover {
+            color: rgba($brown, 0.8);
+        }
+
+        &:after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            position: absolute;
+            right: 5px;
+            background-color: rgba($brown, 0.5);
+            top: calc(0.5em);
+        }
+        &:last-child {
+            &:after {
+                content: none;
+            }
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .bread-crumbs {
+        &__item {
+            &:after {
+                width: 2px;
+                height: 2px;
+            }
+        }
+    }
+}

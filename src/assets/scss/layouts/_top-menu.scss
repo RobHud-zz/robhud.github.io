@@ -1,0 +1,18 @@
+.top-menu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 3rem;
+    position: sticky;
+    top: 10px;
+    z-index: 2;
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .top-menu {
+        margin-bottom: 0;
+        position: relative;
+        z-index: 2;
+    }
+}

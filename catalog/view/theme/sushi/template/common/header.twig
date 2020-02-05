@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ title }}</title>
+
+    {% if description %}
+    <meta name="description" content="{{ description }}" />
+    {% endif %}
+    {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}" />
+    {% endif %}
+
+    <link async type="text/css" rel="stylesheet" href="{{ theme_url }}/stylesheet/main.min.css">
+
+    <!-- Twitter + Open Graph -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+
+    <!-- Apple icon (minimal) -->
+    <link rel="apple-touch-icon" href="{{ theme_url }}/img/apple-touch-icon.png">
+    <link rel="shortcut icon" href="{{ theme_url }}/img/favicon.png" type="img/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:500&display=swap&subset=japanese" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script defer src="{{ theme_url }}/js/lazyload.min.js"></script>
+    {% for analytic in analytics %}
+    {{ analytic }}
+    {% endfor %}
+</head>
+<body>
+    <div id="sprite">
+        {% include 'sushi/img/icons-sprite.svg' %}
+    </div>
+    <div class="rellax rellax--top" data-rellax-speed="-4">
+        <div class="rellax__layout">
+            <svg class="rellax__item rellax__sym-p-1"><use href="#sym-p-1"></use></svg>
+            <svg class="rellax__item rellax__sym-p-2"><use href="#sym-p-2"></use></svg>
+        </div>
+    </div>
+    <div class="rellax rellax--top" data-rellax-speed="-2">
+        <div class="rellax__layout">
+            <svg class="rellax__item rellax__sym-p-3"><use href="#sym-p-3"></use></svg>
+            <svg class="rellax__item rellax__sym-p-4"><use href="#sym-p-2"></use></svg>
+        </div>
+    </div>
+    <div class="layout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-0 col-md-2">
+                    <div class="menu">
+                        <a aria-label="главная страница" class="menu__logo" href="/">
+                            <img src="{{ theme_url }}/img/icons/logo-desc.svg" alt="">
+                        </a>
+
+                        <div class="menu__bg"></div>
+                        <div class="menu__close-bg">
+                            <button aria-label="закрыть меню" class="menu__close"></button>
+                        </div>
+                        <nav class="menu__nav">
+                            <div class="bamboo menu__bamboo">
+                                <div class="bamboo__cell menu__cell">
+                                    <input aria-label="поле поиска" placeholder="Введите запрос" class="search__input" type="text">
+                                    <button aria-label="кнопка поиска" class="search__button">
+                                        <img src="{{ theme_url }}/img/icons/search.svg" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            <ul class="menu__list">
+                                {% for category in categories %}
+                                <li class="menu__item"><a href="{{ category.href }}" class="menu__link {{ category.icon }}">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            <a rel="noopener nofollow" target="_blank" href="https://nextpage.com.ua" class="menu__link nextpage" target="_blank">Designed by Nextpage</a>
+                        </nav>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-10">
+                    <div class="top-menu">
+                        <div class="bamboo bamboo--top-menu">
+                            <div class="bamboo__cell search">
+                            {{ search }}
+                            </div>
+                            <div class="bamboo__cell bamboo__cell--mob-header cart__up-cell">
+                            {{ cart }}
+                            </div>
+                        </div>
+                    </div>

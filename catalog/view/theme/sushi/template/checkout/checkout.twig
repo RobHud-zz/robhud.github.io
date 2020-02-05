@@ -1,0 +1,75 @@
+{{ header }}
+<div class="order order-form">
+	<div class="order__nav">
+		<ul class="bread-crumbs">
+			{% for breadcrumb in breadcrumbs %}
+			<li class="bread-crumbs__item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+			{% endfor %}
+		</ul>
+
+		<div class="counter">
+			<div class="counter__circle">1</div>
+			<div class="counter__circle">2</div>
+			<div class="counter__circle">3</div>
+		</div>
+	</div>
+	<div class="order__inner">
+		<div class="form-section">
+			<div class="title"><h2 class="title__text">ОФОРМЛЕНИЕ ЗАКАЗА<span class="title__tr">ショッピングカート</span></h2></div>
+			<form class="form form--checkout" data-url='{{ ajax_url }}'>
+				<div class="form__inner">
+					<svg class="form__fish">
+						<use href="#fish-symbol"></use>
+					</svg>
+					<input required class="form__input" name="name" placeholder="Ваше имя">
+					<input required class="form__input masked-cart-tel" name="phone" placeholder="Телефон">
+					<input required class="form__input" name="address" placeholder="Адрес доставки">
+					<div class="form__row form__row--between">
+						<p class="form__text">способ оплаты:</p>
+						<div class="form__radio-box">
+							<input class="form__radio" id="form-rad-1" type="radio" value="cheque" checked name="payment_method" placeholder="Наличные">
+							<label class="form__input form__input--radio" for="form-rad-1">Наличными</label>
+						</div>
+					</div>
+					<textarea class="form__input form__input--textarea" name="comment" cols="30" rows="5" placeholder="Комментарий"></textarea>
+					<div class="bamboo bamboo--no-signs">
+						<div class="bamboo__cell bamboo__cell--black">
+							<a class="footer__link" href="{{ comments }}">
+								<button class="slide-button slide-button--green">
+									<div class="slide-button__copy">ОФОРМИТЬ ЗАКАЗ</div>
+									<div class="slide-button__origin">ОФОРМИТЬ ЗАКАЗ</div>
+								</button>
+							</a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="result-section">
+			<div class="delivery__container">
+				<div class="delivery__box">
+					<div class="delivery__cat-container">
+						<svg class="delivery__cat"><use href="#cat"></use></svg>
+					</div>
+					<svg class="delivery__cat-msg"><use href="#meow"></use></svg>
+					<svg class="delivery__fish delivery__fish--1">
+						<use href="#fish-symbol"></use>
+					</svg>
+					<svg class="delivery__fish delivery__fish--2">
+						<use href="#fish-symbol"></use>
+					</svg>
+
+					<div class="row no-gutters">
+						<div class="col-tablet-12 delivery__grid">
+							<div class="delivery__item delivery__item--syms sum__inner">
+								<p class="delivery__text-big">СПАСИБО!</p>
+								<p class="delivery__text">Ваш заказ принят, ожидайте звонка от нашего оператора</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{{ footer }}

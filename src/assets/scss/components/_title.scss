@@ -1,0 +1,59 @@
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    &__text {
+        position: relative;
+        font-size: 46px;
+        font-weight: 500;
+        line-height: 1em;
+        text-transform: uppercase;
+    }
+    &__tr {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(110%);
+        font-size: 16px;
+        line-height: 1em;
+        color: $green;
+        white-space: nowrap;
+        font-weight: 600;
+    }
+    &--wave {
+        position: relative;
+        margin-bottom: 3rem;
+        margin-top: 5rem;
+
+        .title__text:after {
+            content: '';
+            position: absolute;
+            bottom: 50%;
+            transform: translateY(50%);
+            left: 60%;
+            height: 350%;
+            width: 75%;
+            background-size: 13%;
+            background-image: url(../img/icons/wave.svg);
+        }
+    }
+}
+//
+//// <=1024px
+//@include media-breakpoint-down(tablet) {
+//    .cat__title {
+//        .title__tr {
+//            display: none;
+//        }
+//    }
+//}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .title {
+        &__text {
+            font-size: 36px;
+        }
+    }
+}

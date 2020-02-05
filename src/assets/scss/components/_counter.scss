@@ -1,0 +1,78 @@
+.counter {
+    display: flex;
+    align-items: center;
+
+    &__circle {
+        position: relative;
+        border: $orange 1px solid;
+        border-radius: 50%;
+        line-height: 28px;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        margin-left: 95px;
+        opacity: 0.3;
+        font-size: 14px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(-101%, -50%);
+            height: 1px;
+            width: 97px;
+            background-color: $orange;
+        }
+        &:after {
+            position: absolute;
+            text-transform: uppercase;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        &:nth-child(1) {
+            &:after {
+                content: 'Корзина';
+            }
+
+        }
+        &:nth-child(2) {
+            &:after {
+                content: 'Оформление заказа';
+            }
+        }
+        &:nth-child(3) {
+            &:after {
+                content: 'Заказ принят';
+            }
+        }
+
+        &:first-child {
+            margin: 0;
+
+            &:before {
+                content: none;
+            }
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .counter {
+        align-self: center;
+
+        &__circle {
+            margin-left: 75px;
+
+            &:before {
+                width: 77px;
+            }
+        }
+    }
+}

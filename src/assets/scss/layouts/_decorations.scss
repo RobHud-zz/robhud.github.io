@@ -1,0 +1,78 @@
+.decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &__roll, &__samuray, &__sleepy, &__fish {
+        position: absolute;
+    }
+    &__roll {
+        height: 25px;
+        width: 26px;
+        left: 1vw;
+        top: 16vh;
+    }
+    &__samuray {
+        height: 40px;
+        width: 37px;
+        left: 20vw;
+        top: 11vh;
+    }
+    &__sleepy {
+        height: 35px;
+        width: 37px;
+        right: 20vw;
+        top: 15vh;
+    }
+    &__fish {
+        height: 36px;
+        width: 27px;
+        right: 5vw;
+        top: 10vh;
+    }
+}
+
+// <=1024px
+@include media-breakpoint-down(tablet) {
+    .decorations {
+        &__roll {
+            left: 1vw;
+            top: 14vh;
+        }
+        &__samuray {
+            left: 20vw;
+            top: 6vh;
+        }
+        &__sleepy {
+            right: 20vw;
+            top: 9vh;
+        }
+        &__fish {
+            right: 5vw;
+            top: 5vh;
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .decorations {
+        &__roll {
+            left: 5vw;
+            top: 10vh;
+        }
+        &__samuray {
+            left: 10vw;
+            top: 0;
+        }
+        &__sleepy {
+            right: 12vw;
+            top: -1vh;
+        }
+        &__fish {
+            right: 5vw;
+            top: 6vh;
+        }
+    }
+}

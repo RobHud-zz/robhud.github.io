@@ -1,0 +1,156 @@
+{{ header }}
+<section class="product-card discounted {% if special %} product-card__discount {% endif %} {{ hot }}">
+    <div class="product-card__inner">
+        <div class="product-card__img-bg">
+            {% if special %}
+            <div class="discount">
+                <p class="discount__jap">割引</p>
+                <p class="discount__pers">{{ special_percent }}</p>
+            </div>
+            {% endif %}
+            <img class="product-card__img" src="{{ thumb }}" alt="">
+        </div>
+        <div class="product-card__right">
+            <ul class="bread-crumbs">
+                {% for breadcrumb in breadcrumbs %}
+                <li class="bread-crumbs__item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="product-card__name" data-splitting>{{ heading_title }}</div>
+            {% if price %}
+            <div class="product-card__sum">
+                {% if not special %}
+                <div class="product-card__price">{{ price }}</div>
+                {% else %}
+                <div class="product-card__price">{{ price }}</div>
+                <div class="product-card__discounted">{{ special }}</div>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <ul class="product-card__contains">
+                {% for attribute_group in attribute_groups %}
+                    {% for attribute in attribute_group.attribute %}
+                <li class="product-card__contains-item">
+                    <div class="product-card__img-box">
+                        <img class="product-card__contains-img" src="/image/{{ attribute.image }}" alt="">
+                    </div>
+                    <p class="product-card__contains-name">{{ attribute.name }}</p>
+                </li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+
+            <p class="product-card__portion">{{ description }}</p>
+            <div class="bamboo product-card__bamboo bamboo--no-signs products__bamboo bamboo--w-100">
+
+                <div class="bamboo__cell bamboo__cell--black bamboo--w-100">
+                    <button onclick="cart.add(this, '{{ product_id }}', this.closest('.bamboo--no-signs').querySelector('.products__count').textContent)" class="products__status">
+                        <div class="slide-button slide-button--js">
+                            <div class="slide-button__copy">добавлено</div>
+                            <div class="slide-button__origin"><span class="products__hide">добавить</span> в корзину</div>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear products--mob">
+                    <button class="products__minus"></button>
+                </div>
+
+                <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear">
+                    <div class="products__count-box">
+                        <p class="products__count">1</p>
+                    </div>
+                </div>
+
+                <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear products--mob">
+                    <button class="products__plus"></button>
+                </div>
+
+                <div class="bamboo__cell bamboo__cell--black products__buttons-bamboo bamboo__cell--clear products--desc">
+                    <div class="products__buttons">
+                        <button class="products__plus"></button>
+                        <button class="products__minus"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if products %}
+<section class="products" id="related">
+    <div class="row">
+        <div class="title title--wave"><h2 class="title__text">ПОХОЖИЕ РОЛЛЫ<span class="title__tr">ロール</span></h2></div>
+        {% for product in products %}
+        <div class="col-pl-6 col-md-4 products--similar" data-id="{{ product.product_id }}">
+            <div class="products__item {% if product.special %} products--discounted discounted {% endif %} {{ product.tags }}">
+                <div class="products__upper">
+
+                    {% if product.special %}
+                    <div class="discount">
+                        <p class="discount__jap">割引</p>
+                        <p class="discount__pers">{{ product.special_percent }}</p>
+                    </div>
+                    {% endif %}
+
+                    <a class="products__wrapper" href="{{ product.href }}">
+                        <div class="products__bg">
+                            <div class="products__discount"></div>
+                            <img src="{{ product.thumb }}" alt="" class="products__img">
+                        </div>
+                    </a>
+                    <div class="products__name"><a href="{{ product.href }}">{{ product.name }}</a></div>
+                    <div class="products__desc">{{ product.components }}</div>
+                </div>
+                <div class="products__lower">
+                    <div class="products__price">
+                        <div class="products__price-box">
+                            <span class="products__current">{{ product.price }}</span>
+                            {% if product.special %}
+                            <span class="products__discounted">{{ product.special }}</span>
+                            {% endif %}
+                        </div>
+                        {% if product.weight > 0 %}
+                        <div class="products__mass">{{ product.weight }} г</div>
+                        {% endif %}
+                    </div>
+                    <div class="bamboo bamboo--no-signs products__bamboo">
+                        <div class="bamboo__cell products__right-cell bamboo__cell--black">
+                            <button onclick="cart.add(this, '{{ product.product_id }}', this.closest('.bamboo--no-signs').querySelector('.products__count').textContent)" class="products__status bamboo__button">
+                                <div class="slide-button slide-button--js">
+                                    <div class="slide-button__copy">добавлено</div>
+                                    <div class="slide-button__origin"><span class="products__hide">добавить</span> в корзину</div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear products--mob">
+                            <button class="products__minus"></button>
+                        </div>
+
+                        <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear">
+                            <div class="products__count-box">
+                                <p class="products__count">1</p>
+                            </div>
+                        </div>
+
+                        <div class="bamboo__cell products__left-cell bamboo__cell--black bamboo__cell--clear products--mob">
+                            <button class="products__plus"></button>
+                        </div>
+
+                        <div class="bamboo__cell bamboo__cell--black products__buttons-bamboo bamboo__cell--clear products--desc">
+                            <div class="products__buttons">
+                                <button class="products__plus"></button>
+                                <button class="products__minus"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{{ footer }} 

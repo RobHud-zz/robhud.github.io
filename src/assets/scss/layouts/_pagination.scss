@@ -1,0 +1,110 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+
+    &__next, &__prev {
+        border: none;
+        background-color: transparent;
+        width: 20px;
+        height: 14px;
+        background-image: url(../img/icons/arrow.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: rotate(90deg) translateY(-30%);
+        }
+    }
+    &__prev {
+
+    }
+    &__next {
+        transform: rotate(90deg)
+    }
+
+    &__prev {
+        transform: rotate(-90deg);
+
+        &:hover {
+            transform: rotate(-90deg) translateY(-30%);
+        }
+    }
+    &__bamboo {
+        display: inline-flex;
+        border-color: $orange;
+
+        &:before, &:after {
+            content: none;
+        }
+        .bamboo__cell {
+            &:before, &:after {
+                background-color: $orange;
+            }
+        }
+    }
+    &__cell {
+        border-color: $orange;
+        background-image: url(../img/icons/wave-red.svg);
+    }
+    &__current {
+        color: $orange;
+    }
+    &__link {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+
+        &:hover {
+            color: rgba($orange, 0.7)
+        }
+        &--current {
+            color: $orange;
+        }
+    }
+}
+
+// <=768px
+@include media-breakpoint-down(pl) {
+    .pagination__bamboo {
+        display: none;
+    }
+    .pagination {
+        &__cell {
+            &:nth-child(1), &:nth-child(2), &:nth-last-child(1), &:nth-last-child(2) {
+                display: none;
+            }
+            &:nth-child(3) {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 5px;
+                    height: 130%;
+                    border-radius: 5px;
+                    top: -15%;
+                    left: 0;
+                    background-color: $orange;
+                }
+            }
+        }
+    }
+}
+
+// <=414px
+@include media-breakpoint-down(xs) {
+    .pagination {
+        &__next, &__prev {
+            width: 17px;
+            height: 13px;
+        }
+        &__cell {
+            min-width: 4rem;
+        }
+    }
+}

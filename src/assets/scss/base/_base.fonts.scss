@@ -1,0 +1,13 @@
+@import "../mixins/mixins.font-face";
+
+//Example:  @include font-face("Name", "../fonts/Name/Name", 300, normal);
+
+@include font-face("DINRoundPro", "../fonts/DINRoundPro-Light/DINRoundPro-Light", 300, light);
+@include font-face("DINRoundPro", "../fonts/DINRoundPro/DINRoundPro", 400, regular);
+@include font-face("DINRoundPro", "../fonts/DINRoundPro-Medi/DINRoundPro-Medi", 500, medium);
+@include font-face("DINRoundPro", "../fonts/DINRoundPro-Bold/DINRoundPro-Bold", 700, bold);
+@include font-face("DINRoundPro", "../fonts/DINRoundPro-Black/DINRoundPro-Black", 900, light);
+
+@include font-face("DinCondensed", "../fonts/DinCondensedLight/DinCondensedLight", 300, light);
+@include font-face("DinCondensed", "../fonts/DinCondensedRegular/DinCondensedRegular", 400, regular);
+@include font-face("DinCondensed", "../fonts/DinCondensedMedium/DinCondensedMedium", 500, medium);

@@ -1,0 +1,77 @@
+.promo {
+    display: flex;
+    justify-content: center;
+    font-family: $font-secondary;
+    margin-top: 3rem;
+
+    &__input {
+        background-color: rgba(#E9EFDB, 0.4);
+        height: 50px;
+        border-radius: 50px;
+        color: $green;
+        border: none;
+        text-transform: uppercase;
+        padding-left: 1em;
+        font-weight: 500;
+        margin-right: 3vw;
+        width: 25vw;
+        min-width: 100px;
+        margin-left: 2vw;
+
+        &::placeholder {
+            color: $green;
+        }
+    }
+    &__sym {
+        position: absolute;
+        width: 15px;
+
+        &--1 {
+            height: 30px;
+            top: 10px;
+            left: 10px;
+        }
+        &--2 {
+            height: 45px;
+            bottom: 10px;
+            right: 10px;
+        }
+    }
+    &__button {
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+        color: $brown;
+        font-weight: 500;
+    }
+
+    &__bamboo {
+        margin: 0 1vw;
+
+        &:after, &:before {
+            content: none;
+        }
+    }
+    &__cell {
+        background-color: rgba(white,0.3);
+        height: 90px;
+        padding: 0 2vw;
+    }
+    &__bamboo-button {
+        padding: 0 2vw;
+
+        &:after, &:before {
+            content: none;
+        }
+    }
+    &__cell-button {
+        border-color: $brown;
+        background-image: none;
+        animation: none;
+        padding: 0 2vw;
+
+        &:after, &:before {
+            background-color: $brown !important;
+        }
+    }
+}
