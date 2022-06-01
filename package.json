@@ -39,7 +39,7 @@
     "gulp-svgmin": "^2.2.0",
     "moment": "^2.24.0",
     "path": "^0.12.7",
-    "sharp": "^0.22.1",
+    "sharp": "^0.30.5",
     "webpack": "^4.39.1",
     "webpack-stream": "^5.2.1"
   },
